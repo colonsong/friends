@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Jiaoyou;
 use App\Http\Controllers\Controller;
 use App\Profiles;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class ProfilesController extends Controller
 {
@@ -42,7 +43,20 @@ class ProfilesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        #dd($request->all());
+        $name = $request->input("name", "標題");
+        $age = $request->input("age");
+        $gender = $request->input("gender");
+
+        $profile = new Profiles;
+        $profile->name = $name;
+        $profile->age = $age;
+        $profile->gender = $gender;
+        $profile->save();
+
+        Log::info("Store New Profile : id = $profile->id");
+
+        return redirect()->action('Jiaoyou\ProfilesController@index', [$profile->id]);
     }
 
     /**
