@@ -25,7 +25,13 @@ class ProfilesController extends Controller
      */
     public function create()
     {
-        //
+        return view('profile/edit',[
+            'title' => 'ssss',
+            'name' => 'test',
+            'age' => '1',
+            'gender' => '1',
+            'type' => 'create,'
+        ]);
     }
 
     /**
