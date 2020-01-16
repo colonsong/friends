@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateProfilesTable extends Migration
 {
+
+    // 7天內不登入砍帳號實現真實聊天
     /**
      * Run the migrations.
      *
@@ -15,6 +17,9 @@ class CreateProfilesTable extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name');
+            $table->tinyInteger('age');
+            $table->tinyInteger('gender');
             $table->timestamps();
         });
     }
