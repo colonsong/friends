@@ -14,3 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+
+Route::group([
+    'prefix'    => '',
+    'as'    => '',
+    'namespace' => 'Jiaoyou',  // App\Http\Controllers\Jiaoyou
+], function() {
+    Route::resource('/profiles', "ProfilesController");
+});

@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Jiaoyou;
 
+use App\Http\Controllers\Controller;
 use App\Profiles;
 use Illuminate\Http\Request;
 
