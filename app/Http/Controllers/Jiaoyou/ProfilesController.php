@@ -17,6 +17,11 @@ class ProfilesController extends Controller
     public function index()
     {
         //
+        $profiles = Profiles::paginate(2);
+
+        return view("profile/index", [
+            "profiles" => $profiles,
+        ]);
     }
 
     /**
