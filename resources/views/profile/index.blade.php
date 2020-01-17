@@ -8,18 +8,25 @@
         <a href="{{route('profiles.create')}}"><input class="btn btn-primary" name="" type="button" value="上傳簡介"/></a>
         <ul>
         @foreach ($profiles as $profile)
-            <li>
+           
                 
-                <a href="{{route('profiles.show',[$profile->id])}}">{{ $profile->name }}{{ $profile->age }}
-                    {{ $profile->gender }}</a>
-                <form class="form-inline"
-                      action="{{route('profiles.destroy',[$profile->id])}}"
-                      method="post">
-                    @csrf
-                    @method('delete')
-                    <input class="btn btn-danger" name="" type="submit" value="刪除"/>
-                </form>
-            </li>
+                
+
+
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text"><a href="{{route('profiles.show',[$profile->id])}}">{{ $profile->name }}{{ $profile->age }}
+                            {{ $profile->gender }}</a></p>
+
+                 
+                        
+                    </div>
+                </div>
+
+
+                
+            
         @endforeach
         </ul>
     </div>
