@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Jiaoyou;
 
 use App\Http\Controllers\Controller;
 use App\Profiles;
+use App\Images;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 
 class ProfilesController extends Controller
 {
@@ -53,15 +55,29 @@ class ProfilesController extends Controller
         $age = $request->input("age");
         $gender = $request->input("gender");
 
-        $profile = new Profiles;
-        $profile->name = $name;
-        $profile->age = $age;
-        $profile->gender = $gender;
-        $profile->save();
+        
+        if ($request->hasFile('file')) {
+            $image = $request->file('file');
+            $file_path = $image->store('public');
 
-        Log::info("Store New Profile : id = $profile->id");
+            $profile = new Profiles;
+            $profile->name = $name;
+            $profile->age = $age;
+            $profile->gender = $gender;
+            $profile->save();
+    
+            $images = new Images;
+            $images->profiles_id = $profile->id;
+            $images->images_path = $file_path;
+            $images->save();
+            
+    
+            Log::info("Store New Profile : id = $profile->id");
+    
+            return redirect()->action('Jiaoyou\ProfilesController@index', [$profile->id]);
+        }
 
-        return redirect()->action('Jiaoyou\ProfilesController@index', [$profile->id]);
+
     }
 
     /**
