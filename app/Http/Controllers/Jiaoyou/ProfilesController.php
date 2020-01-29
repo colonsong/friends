@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Jiaoyou;
 use App\Http\Controllers\Controller;
 use App\Profiles;
 use App\Images;
+use App\User;
+use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
@@ -33,13 +35,25 @@ class ProfilesController extends Controller
      */
     public function create()
     {
-        return view('profile/edit',[
-            'title' => 'ssss',
-            'name' => 'test',
-            'age' => '1',
-            'gender' => '1',
-            'type' => 'create,'
-        ]);
+        
+        if (Auth::check()) {
+
+            if (empty(Auth::user()->profile)) {
+                return view('profile/edit',[
+                    'title' => 'ssss',
+                    'name' => 'test',
+                    'age' => '1',
+                    'gender' => '1',
+                    'type' => 'create,'
+                ]);
+            }
+            return redirect('profiles');
+            
+        } else {
+            return redirect('login');
+        }
+        
+       
     }
 
     /**
@@ -50,7 +64,7 @@ class ProfilesController extends Controller
      */
     public function store(Request $request)
     {
-        #dd($request->all());
+    
         $name = $request->input("name", "標題");
         $age = $request->input("age");
         $gender = $request->input("gender");
@@ -64,6 +78,7 @@ class ProfilesController extends Controller
             $profile->name = $name;
             $profile->age = $age;
             $profile->gender = $gender;
+            $profile->user_id = $request->user()->id;
             $profile->save();
     
             $images = new Images;
@@ -76,7 +91,6 @@ class ProfilesController extends Controller
     
             return redirect()->action('Jiaoyou\ProfilesController@index', [$profile->id]);
         }
-
 
     }
 
