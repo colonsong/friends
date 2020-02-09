@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Jiaoyou;
 
 use App\Http\Controllers\Controller;
 use App\Profiles;
+use App\Images;
 use App\User;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 
 class ProfilesController extends Controller
 {
@@ -34,16 +36,21 @@ class ProfilesController extends Controller
     public function create()
     {
         
-        if (Auth::check() && empty(Auth::user()->profile)) {
-            return view('profile/edit',[
-                'title' => 'ssss',
-                'name' => 'test',
-                'age' => '1',
-                'gender' => '1',
-                'type' => 'create,'
-            ]);
-        } else {
+        if (Auth::check()) {
+
+            if (empty(Auth::user()->profile)) {
+                return view('profile/edit',[
+                    'title' => 'ssss',
+                    'name' => 'test',
+                    'age' => '1',
+                    'gender' => '1',
+                    'type' => 'create,'
+                ]);
+            }
             return redirect('profiles');
+            
+        } else {
+            return redirect('login');
         }
         
        
@@ -62,16 +69,29 @@ class ProfilesController extends Controller
         $age = $request->input("age");
         $gender = $request->input("gender");
 
-        $profile = new Profiles;
-        $profile->name = $name;
-        $profile->age = $age;
-        $profile->gender = $gender;
-        $profile->user_id = $request->user()->id;
-        $profile->save();
+        
+        if ($request->hasFile('file')) {
+            $image = $request->file('file');
+            $file_path = $image->store('public');
 
-        Log::info("Store New Profile : id = $profile->id");
+            $profile = new Profiles;
+            $profile->name = $name;
+            $profile->age = $age;
+            $profile->gender = $gender;
+            $profile->user_id = $request->user()->id;
+            $profile->save();
+    
+            $images = new Images;
+            $images->profiles_id = $profile->id;
+            $images->images_path = $file_path;
+            $images->save();
+            
+    
+            Log::info("Store New Profile : id = $profile->id");
+    
+            return redirect()->action('Jiaoyou\ProfilesController@index', [$profile->id]);
+        }
 
-        return redirect()->action('Jiaoyou\ProfilesController@index', [$profile->id]);
     }
 
     /**

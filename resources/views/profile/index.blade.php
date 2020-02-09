@@ -9,23 +9,15 @@
         <ul>
         @foreach ($profiles as $profile)
            
-                
-                
-
 
                 <div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
+                    <img src="{{Storage::url($profile->images()->first()->images_path)}}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <p class="card-text"><a href="{{route('profiles.show',[$profile->id])}}">{{ $profile->name }}{{ $profile->age }}
-                            {{ $profile->gender }}</a></p>
-
-                 
-                        
+                            {{ $profile->gender }}</a>
+                        </p>
                     </div>
-                </div>
-
-
-                
+                </div>  
             
         @endforeach
         </ul>
