@@ -16,6 +16,16 @@ Route::get('/', function () {
 });
 
 
+Route::group([
+    'prefix'    => 'admin', // 預設URL
+    'as'    => '', // route  命名 重導用
+    'namespace' => 'Admin',  // 預設CONTROLLER App\Http\Controllers\Jiaoyou
+], function() {
+    
+    Route::get('/', "AdminController@index");
+});
+
+
 
 Route::group([
     'prefix'    => '',
