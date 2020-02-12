@@ -16,16 +16,39 @@ Route::get('/', function () {
 });
 
 
+/**
+ * 
+ * 
+ * Route::get($uri, $callback);
+ * route::post($uri, $callback);
+ * route::put($uri, $callback);
+ * route::patch($uri, $callback);
+ * route::delete($uri, $callback);
+ * route::options($uri, $callback);
+ * 
+ * 
+ * 
+ * RESOURCE 動詞	路徑	        行為	 路由名稱
+GET	        /photo	                index	photo.index
+GET	        /photo/create	        create	photo.create
+POST	    /photo	                store	photo.store
+GET	        /photo/{photo}	        show	photo.show
+GET	        /photo/{photo}/edit	    edit	photo.edit
+PUT/PATCH	/photo/{photo}	        update	photo.update
+DELETE	    /photo/{photo}	        destroy	photo.destroy
+ */
 Route::group([
+    'middleware' => 'admin.user',
     'prefix'    => 'admin', // 預設URL
     'as'    => '', // route  命名 重導用
-    'namespace' => 'Admin',  // 預設CONTROLLER App\Http\Controllers\Jiaoyou
+    'namespace' => 'Admin',  // 預設CONTROLLER App\Http\Controllers\Admin
 ], function() {
     
     Route::get('/', "AdminController@index");
+    Route::get('/profiles/edit', "ProfilesController@edit");
 });
 
-
+Route::get('/profiles/get', "Jiaoyou\ProfilesController@get");
 
 Route::group([
     'prefix'    => '',
