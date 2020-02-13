@@ -4,11 +4,14 @@
 
 
 @section('body')
+{{--
     <div class="container">
         <a href="{{route('profiles.create')}}"><input class="btn btn-primary" name="" type="button" value="上傳簡介"/></a>
         <ul>
 
-   
+
+
+       
         @foreach ($profiles as $profile)
            
 
@@ -24,11 +27,13 @@
                 </div>  
             
         @endforeach
+
+       
         </ul>
     </div>
 
     {{ $profiles->links() }}
-
+    --}}
     <div id="app">
             <example-component></example-component>
     </div>

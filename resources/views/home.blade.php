@@ -15,6 +15,9 @@
                     @endif
 
                     You are logged in!
+
+                    <a class="text-muted" href="{{url('admin')}}">管理員</a> , 
+                    <a class="text-muted" href="{{url('profiles')}}">前台</a>
                 </div>
             </div>
         </div>

@@ -1,23 +1,25 @@
 <template>
-    <div class="container" style="margin-top:50px;">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header"><strong> Laravel Vue JS Infinite Scroll - ItSolutionStuff.com</strong></div>
- 
-                    <div class="card-body">
-                        <div>
-                          <p v-for="item in list">
-                            <a v-bind:href="'https://127.0.0.1/profiles/get/'+item.name" target="_blank">{{item.name}}</a>
-                          </p>
-                          <infinite-loading @distance="1" @infinite="infiniteHandler"></infinite-loading>
- 
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+
+
+
+
+<div class="row row-cols-1 row-cols-md-4">
+
+  <div class="col mb-4" v-for="item in list">
+    <div class="card">
+      <img src="" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
     </div>
+  </div>
+
+  <infinite-loading @distance="1" @infinite="infiniteHandler"></infinite-loading>
+</div>
+
+
 </template>
  
 <script>

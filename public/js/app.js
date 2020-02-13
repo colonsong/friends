@@ -1930,6 +1930,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component mounted.');
@@ -37346,48 +37348,22 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "container", staticStyle: { "margin-top": "50px" } },
+    { staticClass: "row row-cols-1 row-cols-md-4" },
     [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card" }, [
-            _vm._m(0),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _c(
-                "div",
-                [
-                  _vm._l(_vm.list, function(item) {
-                    return _c("p", [
-                      _c(
-                        "a",
-                        {
-                          attrs: {
-                            href: "https://127.0.0.1/profiles/get/" + item.name,
-                            target: "_blank"
-                          }
-                        },
-                        [_vm._v(_vm._s(item.name))]
-                      )
-                    ])
-                  }),
-                  _vm._v(" "),
-                  _c("infinite-loading", {
-                    on: {
-                      distance: function($event) {
-                        1
-                      },
-                      infinite: _vm.infiniteHandler
-                    }
-                  })
-                ],
-                2
-              )
-            ])
-          ])
-        ])
-      ])
-    ]
+      _vm._l(_vm.list, function(item) {
+        return _c("div", { staticClass: "col mb-4" }, [_vm._m(0, true)])
+      }),
+      _vm._v(" "),
+      _c("infinite-loading", {
+        on: {
+          distance: function($event) {
+            1
+          },
+          infinite: _vm.infiniteHandler
+        }
+      })
+    ],
+    2
   )
 }
 var staticRenderFns = [
@@ -37395,9 +37371,17 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c("strong", [
-        _vm._v(" Laravel Vue JS Infinite Scroll - ItSolutionStuff.com")
+    return _c("div", { staticClass: "card" }, [
+      _c("img", { staticClass: "card-img-top", attrs: { src: "", alt: "" } }),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-body" }, [
+        _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
+        _vm._v(" "),
+        _c("p", { staticClass: "card-text" }, [
+          _vm._v(
+            "This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
+          )
+        ])
       ])
     ])
   }

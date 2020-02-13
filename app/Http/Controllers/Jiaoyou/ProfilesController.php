@@ -32,7 +32,7 @@ class ProfilesController extends Controller
     public function get()
     {
         //
-        $profiles = Profiles::orderBy('id')->paginate(5);
+        $profiles = Profiles::orderBy('id')->paginate(10);
 
         return response()->json($profiles);
     }
