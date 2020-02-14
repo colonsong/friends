@@ -16,6 +16,14 @@ Route::get('/', function () {
 });
 
 
+Route::group([
+    'prefix'    => '',
+    'as'    => '',
+    'namespace' => 'Chat',  // App\Http\Controllers\Chat
+], function() {
+    Route::get('/chatsocket', "Sock@run");
+});
+
 
 Route::group([
     'prefix'    => '',
@@ -27,3 +35,5 @@ Route::group([
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
