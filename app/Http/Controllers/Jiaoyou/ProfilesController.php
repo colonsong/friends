@@ -21,11 +21,20 @@ class ProfilesController extends Controller
     public function index()
     {
         //
-        $profiles = Profiles::paginate(2);
+        $profiles = Profiles::paginate(3);
 
         return view("profile/index", [
             "profiles" => $profiles,
         ]);
+    }
+
+
+    public function get()
+    {
+        //
+        $profiles = Profiles::orderBy('id')->paginate(10);
+
+        return response()->json($profiles);
     }
 
     /**
