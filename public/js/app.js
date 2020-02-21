@@ -37372,7 +37372,13 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card" }, [
-      _c("img", { staticClass: "card-img-top", attrs: { src: "", alt: "" } }),
+      _c("img", {
+        staticClass: "card-img-top",
+        attrs: {
+          src: "https://urlove.cc/uploads/201908/14/0854_nzxpz.jpg",
+          alt: ""
+        }
+      }),
       _vm._v(" "),
       _c("div", { staticClass: "card-body" }, [
         _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
@@ -51293,8 +51299,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\friends\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\friends\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\friend\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\friend\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

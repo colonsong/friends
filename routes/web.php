@@ -27,17 +27,17 @@ Route::group([
 
 
 /**
- * 
- * 
+ *
+ *
  * Route::get($uri, $callback);
  * route::post($uri, $callback);
  * route::put($uri, $callback);
  * route::patch($uri, $callback);
  * route::delete($uri, $callback);
  * route::options($uri, $callback);
- * 
- * 
- * 
+ *
+ *
+ *
  * RESOURCE 動詞	路徑	        行為	 路由名稱
 GET	        /photo	                index	photo.index
 GET	        /photo/create	        create	photo.create
@@ -53,7 +53,7 @@ Route::group([
     'as'    => '', // route  命名 重導用
     'namespace' => 'Admin',  // 預設CONTROLLER App\Http\Controllers\Admin
 ], function() {
-    
+
     Route::get('/', "AdminController@index");
     Route::get('/profiles/edit', "ProfilesController@edit");
 });
