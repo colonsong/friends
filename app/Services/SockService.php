@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Chat;
+namespace App\Services;
 
 
 /**
@@ -39,7 +39,7 @@ Sec-WebSocket-Version 是告訴伺服器所使用的 WebSocket Draft （協議�
 原文網址：https://kknews.cc/code/pl638kp.html
  *
  */
-class Sock
+class SockService
 {
 
     public $sockets;
@@ -90,7 +90,7 @@ class Sock
             $write  = NULL;
             $exception = NULL;
 
-             // 看client有沒有寫東西進來
+            // 看client有沒有寫東西進來
 
             $this->log('socket_selecting', __LINE__);
             $this->log($this->sockets, __LINE__);
@@ -155,9 +155,9 @@ class Sock
                 /**
                  *
                  * 1.socket_recv支持多种flag，用于不同场景
-                     2.socket_recv可以检测socket关闭的情况(例如对端关闭了socket)
-                    returns the number of bytes received, or FALSE if there was an error.
-                    */
+                2.socket_recv可以检测socket关闭的情况(例如对端关闭了socket)
+                returns the number of bytes received, or FALSE if there was an error.
+                 */
                 // read client input
                 //从已连接的socket接收数据
                 $this->log($sock, __LINE__);
@@ -225,9 +225,9 @@ class Sock
 
 
                 $response_text = $this->mask(json_encode($ar));
-                    $this->send_message($response_text);
+                $this->send_message($response_text);
 
-                    $ar = [];
+                $ar = [];
 
             }
 
@@ -322,7 +322,7 @@ class Sock
         //If you want to have multiple clients on a socket you will have to use non blocking.
         #设置非阻塞。一个很关键的方法，如果没设置非阻塞，socket 的操作就会被阻塞，例如 receive, send, connect, accept 等等。默认情况下
         #https://learnku.com/articles/9433/php-socket-communication-tcp
-         socket_set_nonblock($socket);
+        socket_set_nonblock($socket);
 
 
         $this->log('socket Started : ' . date('Y-m-d H:i:s'), __LINE__);

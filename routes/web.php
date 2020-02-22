@@ -22,7 +22,7 @@ Route::group([
     'as'    => '',
     'namespace' => 'Chat',  // App\Http\Controllers\Chat
 ], function() {
-    Route::get('/chatsocket', "Sock@run");
+    Route::get('/chatsocket', "SockController@run");
 });
 
 
@@ -72,4 +72,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
+Route::get('/hello-world', function () {
+    return view('hello_world');
+});
 
