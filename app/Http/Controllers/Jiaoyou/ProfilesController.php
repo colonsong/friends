@@ -44,7 +44,8 @@ class ProfilesController extends Controller
      */
     public function create()
     {
-        
+        //Auth::check() 判斷用戶登入了沒
+        //可以用 Auth::user() 取得用戶資料
         if (Auth::check()) {
 
             if (empty(Auth::user()->profile)) {

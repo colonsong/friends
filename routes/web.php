@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 
+Route::get('/testCode', "TestCodeController@index");
 
 Route::group([
     'prefix'    => '',

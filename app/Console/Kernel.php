@@ -5,6 +5,9 @@ namespace App\Console;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
+
+// php artisan make:command ClearDeletedPosts
+
 class Kernel extends ConsoleKernel
 {
     /**
@@ -26,6 +29,10 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
+
+        $schedule->call(function () {
+            Log::info('成功排程');
+        })->everyMinute();
     }
 
     /**
