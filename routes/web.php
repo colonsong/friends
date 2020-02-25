@@ -61,6 +61,8 @@ Route::group([
 
 Route::get('/profiles/get', "Jiaoyou\ProfilesController@get");
 
+Route::get('/redisTest/test', "RedisController@test");
+
 
 Route::group([
     'prefix'    => '',

@@ -4,7 +4,7 @@ namespace App\Policies;
 use App\User;
 use App\Profiles;
 
-class UserPolicy extends Policy
+class ProfilesPolicy extends Policy
 {
 
     /**
