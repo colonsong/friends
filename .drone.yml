@@ -10,7 +10,7 @@ steps:
 
 - name: backend
   pull: if-not-exists
-  image:  laradock/workspace:2.6.1-7.1
+  image:  laradock/workspace:2.6.1-7.4
   commands:
   - php -v
   - composer -V
