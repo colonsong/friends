@@ -80,3 +80,7 @@ Route::get('/hello-world', function () {
     return view('hello_world');
 });
 
+Route::get('/vueinfinite', function () {
+    return view('vue_infinite');
+});
+

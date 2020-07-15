@@ -21,6 +21,7 @@ Vue.use(require('vue-resource'));
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('InfiniteLoading', require('vue-infinite-loading'));
+Vue.component('example-component2', require('./components/inFinite2.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

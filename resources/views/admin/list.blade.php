@@ -4,16 +4,16 @@
 
     <div class="container-fluid">
         <h1 class="page-title">
-            <i class=""></i> 
+            <i class=""></i>
         </h1>
         <p>
         <div>
             <a href="" class="btn btn-success btn-add-new">
                 <i class="voyager-plus"></i> <span>{{ __('voyager::generic.add_new') }}</span>
             </a>
-    
-    
-           
+
+
+
                 <a href="" class="btn btn-primary btn-add-new">
                     <i class="voyager-list"></i> <span>{{ __('voyager::bread.order') }}</span>
                 </a>
@@ -32,8 +32,8 @@
                     </thead>
                     <tbody>
                     @foreach ($profiles as $profile)
-                        
-                        
+
+
                         <tr>
                             <th scope="row">{{ $profile->id}}</th>
                             <td>{{ $profile->name}}</td>
@@ -47,8 +47,8 @@
                     @endforeach
                     </tbody>
                 </table>
-        
-    
+
+
 
     </div>
 

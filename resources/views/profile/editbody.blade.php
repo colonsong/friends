@@ -3,7 +3,7 @@
         ($type=="edit") ? route("profiles.update", [$id]) : route("profiles.store")
     }}" method="post" enctype="multipart/form-data">
 
-        @csrf 
+        @csrf
         @method(($type=="edit") ? "patch" : "post")
         @if ($errors->any())
         <div class="alert alert-danger">
@@ -24,7 +24,7 @@
 
         <input name="gender" type="text" value="{{$gender}}" id="gender"/>
         <br/>
-  
+
         <input name="" type="submit" value="儲存"/>
 
     </form>
